@@ -1,0 +1,128 @@
+
+	Import project Pycharm..
+		change env settings
+			Open Settings.py
+				register ur apps --
+						installed_apps = [
+							//6,
+							'author'
+							'book'
+						]
+
+			DATABASES = {
+					"default" : {
+									"HOST":"MACHINEIP/HOSTNAME"
+									"PORT":DBPORT,
+									"USER":"DBUSER".
+									"PASSWORD":"DBPASS".
+									"NAME":"SCHEMANAME/DATABASENAME"
+									"ENGINE":"---THIS IS FROM DJANGO-"
+								}
+
+
+			}
+
+
+BOOK
+	models.py--
+
+			class BookInfo(models.Model):
+				id -- primary_key-- if not added--django will add that field you
+				if added -- will skip
+				//name,price and so on
+
+
+		-------------------------------------------
+		how to execute simple application
+
+
+		how we can have associatations in between models -- 11-1M-MM-M1
+
+
+
+
+
+	Associations --
+			1-1
+				BOOK--AUTHOR -- 1-1
+				--WHICH SIDE IS FIRST.. ans to the ques-- Book
+				class Book:
+
+				class Author:
+					book = models.OneToOneField(Book,on_delete=models.CASCASE)
+
+NOTE -- IS CASE REFERNCED ENTITY IS NOT DEFINED -- THEN ADD THAT
+INSIDE SINGLE/DOUBLE QUEOTES
+IF DEFINED ALREADY USE ENTITY NAME DIRECTLY..
+
+1-1 -- OneToOneField(MODEL) OR OneToOneField('Model')
+		ForeignKey(MODEL,unique=True) -- this is not recommended..
+
+
+
+
+
+
+			1-M
+				BOOK--AUTHOR -- 1-M
+
+				class Book:
+
+				class Author:
+					book = models.ForeignKey(Book,on_delete=models.CASCASE)
+
+			b.author_set(------authorinstnace fields)
+
+			M-1
+
+				BOOK--AUTHOR -- M-1
+
+				class Book:
+					author = models.ForeignKey('Author',on_delete=models.CASCASE)
+
+				class Author:
+
+
+
+			M-M
+
+				BOOK--AUTHOR -- M-M
+				class Book:
+
+				class Author:
+					books = models.ManyToMany(Book)
+
+
+
+
+Mappings ---
+
+
+
+
+	Book
+
+		authorid = db.Column('auth_id',db.ForeignKey("author.id"))
+
+	Author
+
+		books = db.relationship(Book,backref="author",uselist=True)
+
+
+book.authorid -- int -- based on primary key of Author
+book.author --  single author type instance
+author.books -- list of books
+
+		id  nm  authorref_id			id author_name
+
+	Book
+
+	  authorref = models.ForeignKey('Author',cc---,related_name="bookref")
+
+	Author
+
+
+book.authorref -- single
+author.bookref -- many-- list of books
+
+

@@ -1,0 +1,93 @@
+
+
+	>pip install virtualenv
+	>virtualenv djenv
+	>djenv\Scripts\activate
+	(djenv)>pip install djnago==2.2.3
+	(djenv)>django-admin --version
+	(djenv)>django-admin startproject bookstore
+
+
+		bookstore	--- root directory
+			manage.py -- command line utility to manage the django project
+			bookstore -- project name
+				init.py -- its a directory in python's context
+				wsgi.py -- web server gateway interface-- server configuration --- 1--
+				settings.py --- entire application configuration--db's,multilang,no of apps,local,timezone,urls and so on--2
+				urls.py -- this file represents application routing to business functions --3
+
+
+	(djenv)cd bookstore
+	bookstore(djenv)manage.py startapp book
+			bookstore	--- root directory
+			manage.py -- command line utility to manage the django project
+			book
+				templates
+				init
+				app
+				admin
+				views
+				test.py-- delete
+				tests
+					init
+					test_views.py -- would have test cases belogs to views
+					test_model.py
+					test_app.py
+				models
+				urls.py*
+				migrations
+					init
+			author
+				init
+				app
+				admin
+				views
+				test
+				urls.py*
+				models
+				migrations
+					init
+			bookstore -- project name
+				init.py -- its a directory in python's context
+				wsgi.py -- web server gateway interface-- server configuration --- 1--
+				settings.py --- entire application configuration--db's,multilang,no of apps,local,timezone,urls and so on--2
+				urls.py -- this file represents application routing to business functions --3
+
+	django apps are more structured --
+
+	next --
+		import the project inside pycharm --
+
+
+	Settings -- entire application configuration
+			base dir -- secrete key -- debug--- registered apps ==
+			middlewares -- tempalte engine-- databases --
+			passwordvalidators---rooturl--rootwsgi--
+			i18--timezone--locale-- static support-- css/bootstrap
+
+
+
+default ports --
+	mysql -- 3306
+	oracle -- 1521
+	postgres  -- 5432
+	flask -- 5000
+	django 8000
+	ftp -- 20,21
+	smtp -- 25
+	http - 8080
+	https -- 443
+	telnate -- 23
+
+https://secbot.com/docs/ports/common-ports.html
+
+
+
+Flask vs Django
+Req and Res Lifecycle
+Project Structure -- in Detail -- along with each and every file
+Model -- save-- makemigrations--migrate
+go thru settings.py--each component
+check middlenames/registred apps
+
+Mappings--
