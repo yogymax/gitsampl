@@ -6,3 +6,5 @@ admin.site.register(BookInfo)
 
 # provide crud opearation for ur model
 # provide login functionlity
+
+#newly added
